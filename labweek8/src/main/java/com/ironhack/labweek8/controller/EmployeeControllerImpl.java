@@ -27,5 +27,10 @@ public class EmployeeControllerImpl implements EmployeeControllerInterface {
   public Employee getEmployeeById(@PathVariable(name = "id") int id) {
     return employeeService.getEmployeeById(id);
   }
+
+  @GetMapping("status")
+  public List<Employee> getEmployeeByStatus(@RequestParam String status) {
+    return employeeService.getEmployeeByStatus(status);
+  }
  
 }

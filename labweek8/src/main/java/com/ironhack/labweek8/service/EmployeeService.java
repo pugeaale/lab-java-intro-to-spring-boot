@@ -1,6 +1,7 @@
 package com.ironhack.labweek8.service;
 
 import com.ironhack.labweek8.model.Employee;
+import com.ironhack.labweek8.model.EmployeeStatus;
 import com.ironhack.labweek8.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,9 @@ public class EmployeeService {
             return optional.get();
         }
         return null;
+    }
+
+    public List<Employee> getEmployeeByStatus(String status) {
+        return employeeRepository.findEmployeeByStatus(EmployeeStatus.valueOf(status.toUpperCase()));
     }
 }
