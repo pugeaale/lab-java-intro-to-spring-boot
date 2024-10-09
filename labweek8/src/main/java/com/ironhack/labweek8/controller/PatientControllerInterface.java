@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PatientControllerInterface {
   List<Patient> getPatients();
+  Patient getPatientById(int id);
 }

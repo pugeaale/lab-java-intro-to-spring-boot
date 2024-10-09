@@ -4,6 +4,7 @@ import com.ironhack.labweek8.model.Patient;
 import com.ironhack.labweek8.service.PatientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,4 +22,12 @@ public class PatientControllerImpl implements PatientControllerInterface {
     public List<Patient> getPatients() {
         return patientService.getAllPatients();
     }
+
+    @Override
+    @GetMapping("/{id}")
+    public Patient getPatientById(@PathVariable(name = "id") int id) {
+        return patientService.getPatientById(id);
+    }
+
+
 }

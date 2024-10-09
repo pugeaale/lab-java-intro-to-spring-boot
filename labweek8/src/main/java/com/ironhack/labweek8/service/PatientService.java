@@ -1,11 +1,13 @@
 package com.ironhack.labweek8.service;
 
+import com.ironhack.labweek8.model.Employee;
 import com.ironhack.labweek8.model.Patient;
 import com.ironhack.labweek8.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,5 +17,10 @@ public class PatientService {
 
     public List<Patient> getAllPatients() {
         return patientRepository.findAll();
+    }
+
+    public Patient getPatientById(int id) {
+        Optional<Patient> optional = patientRepository.findById(id);
+        return optional.orElse(null);
     }
 }
