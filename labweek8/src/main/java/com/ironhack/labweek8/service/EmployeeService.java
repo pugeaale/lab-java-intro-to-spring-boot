@@ -31,4 +31,8 @@ public class EmployeeService {
     public List<Employee> getEmployeeByStatus(String status) {
         return employeeRepository.findEmployeeByStatus(EmployeeStatus.valueOf(status.toUpperCase()));
     }
+
+    public List<Employee> getEmployeeByDepartment(String department) {
+        return employeeRepository.findEmployeeByDepartment(department);
+    }
 }

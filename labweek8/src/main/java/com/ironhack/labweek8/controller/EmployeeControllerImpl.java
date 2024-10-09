@@ -32,5 +32,9 @@ public class EmployeeControllerImpl implements EmployeeControllerInterface {
   public List<Employee> getEmployeeByStatus(@RequestParam String status) {
     return employeeService.getEmployeeByStatus(status);
   }
- 
+
+  @GetMapping("department")
+  public List<Employee> getEmployeeByDepartment(@RequestParam String department) {
+    return employeeService.getEmployeeByDepartment(department);
+  }
 }
