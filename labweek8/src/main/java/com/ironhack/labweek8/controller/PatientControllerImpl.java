@@ -3,11 +3,10 @@ package com.ironhack.labweek8.controller;
 import com.ironhack.labweek8.model.Patient;
 import com.ironhack.labweek8.service.PatientService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -27,6 +26,12 @@ public class PatientControllerImpl implements PatientControllerInterface {
     @GetMapping("/{id}")
     public Patient getPatientById(@PathVariable(name = "id") int id) {
         return patientService.getPatientById(id);
+    }
+
+    @Override
+    @GetMapping("birthdate")
+    public List<Patient> getPatientsWithBirthdateRange(@RequestParam LocalDate from, @RequestParam LocalDate to) {
+        return patientService.getPatientWithBirthdayBetween(from, to);
     }
 
 

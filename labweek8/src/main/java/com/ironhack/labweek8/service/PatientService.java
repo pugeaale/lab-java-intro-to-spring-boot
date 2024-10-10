@@ -6,6 +6,7 @@ import com.ironhack.labweek8.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,5 +23,9 @@ public class PatientService {
     public Patient getPatientById(int id) {
         Optional<Patient> optional = patientRepository.findById(id);
         return optional.orElse(null);
+    }
+
+    public List<Patient> getPatientWithBirthdayBetween(LocalDate from, LocalDate to) {
+        return patientRepository.findByDateOfBirthBetween(from, to);
     }
 }
