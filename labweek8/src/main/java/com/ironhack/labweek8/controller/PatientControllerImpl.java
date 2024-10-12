@@ -34,5 +34,11 @@ public class PatientControllerImpl implements PatientControllerInterface {
         return patientService.getPatientWithBirthdayBetween(from, to);
     }
 
+    @Override
+    @GetMapping("doctor")
+    public List<Patient> getPatientsByDoctorDepartment(@RequestParam String department) {
+        return patientService.getPatientByDoctorDepartment(department);
+    }
+
 
 }

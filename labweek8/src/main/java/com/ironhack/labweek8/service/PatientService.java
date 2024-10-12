@@ -28,4 +28,8 @@ public class PatientService {
     public List<Patient> getPatientWithBirthdayBetween(LocalDate from, LocalDate to) {
         return patientRepository.findByDateOfBirthBetween(from, to);
     }
+
+    public List<Patient> getPatientByDoctorDepartment(String department) {
+        return patientRepository.findByDoctorDepartment(department);
+    }
 }

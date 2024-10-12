@@ -7,7 +7,11 @@ import java.util.Date;
 import java.util.List;
 
 public interface PatientControllerInterface {
-  List<Patient> getPatients();
-  Patient getPatientById(int id);
-  List<Patient> getPatientsWithBirthdateRange(LocalDate from, LocalDate to);
+    List<Patient> getPatients();
+
+    Patient getPatientById(int id);
+
+    List<Patient> getPatientsWithBirthdateRange(LocalDate from, LocalDate to);
+
+    List<Patient> getPatientsByDoctorDepartment(String department);
 }

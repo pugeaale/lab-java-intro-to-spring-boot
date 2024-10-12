@@ -21,4 +21,8 @@ public class Patient {
 
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
+
+    @OneToOne
+    @JoinColumn(name = "admitted_by", referencedColumnName = "employee_id")
+    private Employee doctor;
 }
