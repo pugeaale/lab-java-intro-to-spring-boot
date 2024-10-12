@@ -1,6 +1,7 @@
 package com.ironhack.labweek8.service;
 
 import com.ironhack.labweek8.model.Employee;
+import com.ironhack.labweek8.model.EmployeeStatus;
 import com.ironhack.labweek8.model.Patient;
 import com.ironhack.labweek8.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,5 +32,9 @@ public class PatientService {
 
     public List<Patient> getPatientByDoctorDepartment(String department) {
         return patientRepository.findByDoctorDepartment(department);
+    }
+
+    public List<Patient> getPatientByDoctorStatus(EmployeeStatus employeeStatus) {
+        return patientRepository.findByDoctorStatus(employeeStatus);
     }
 }

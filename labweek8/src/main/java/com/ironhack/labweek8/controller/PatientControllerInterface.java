@@ -14,4 +14,6 @@ public interface PatientControllerInterface {
     List<Patient> getPatientsWithBirthdateRange(LocalDate from, LocalDate to);
 
     List<Patient> getPatientsByDoctorDepartment(String department);
+
+    List<Patient> getPatientsWithDoctorStatusOff();
 }

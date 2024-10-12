@@ -1,5 +1,6 @@
 package com.ironhack.labweek8.controller;
 
+import com.ironhack.labweek8.model.EmployeeStatus;
 import com.ironhack.labweek8.model.Patient;
 import com.ironhack.labweek8.service.PatientService;
 import lombok.RequiredArgsConstructor;
@@ -38,6 +39,12 @@ public class PatientControllerImpl implements PatientControllerInterface {
     @GetMapping("doctor")
     public List<Patient> getPatientsByDoctorDepartment(@RequestParam String department) {
         return patientService.getPatientByDoctorDepartment(department);
+    }
+
+    @Override
+    @GetMapping("withDoctorOff")
+    public List<Patient> getPatientsWithDoctorStatusOff() {
+        return patientService.getPatientByDoctorStatus(EmployeeStatus.OFF);
     }
 
 

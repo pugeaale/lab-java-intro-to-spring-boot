@@ -1,5 +1,6 @@
 package com.ironhack.labweek8.repository;
 
+import com.ironhack.labweek8.model.EmployeeStatus;
 import com.ironhack.labweek8.model.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,4 +17,7 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
     @Query(value = "SELECT p FROM Patient p WHERE p.doctor.department IN :department")
     List<Patient> findByDoctorDepartment(@Param("department") String department);
+
+    @Query(value = "SELECT p FROM Patient p WHERE p.doctor.status IN :status")
+    List<Patient> findByDoctorStatus(@Param("status") EmployeeStatus employeeStatus);
 }
